@@ -1,0 +1,191 @@
+/* Style Sheet for the Grade Calculator*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+
+}
+
+
+body {
+    background-image: url("images/1176282.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#int_col_left {
+    float: left;
+    border: 2px solid whitesmoke;
+    width: 20%;
+    content: "\00A0";
+    visibility: hidden;
+}
+
+#int_col_right {
+    float: right;
+    border: 2px solid whitesmoke;
+    width: 20%;
+    content: "\00A0";
+    visibility: hidden;
+
+}
+
+.content {
+    width: 100%;
+    align-content: center;
+
+    /*border: 2px solid whitesmoke;*/
+}
+
+h1 {
+    font-family: "Javanese Text", sans-serif;
+    font-size: 3em;
+    color: rgb(255, 198, 198);
+    line-height: 1.2em;
+    text-shadow: white;
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    font-family: Leelawadee, "Lucida Sans", sans-serif;
+    font-size: 1.4em;
+    color:floralwhite;
+}
+
+.content h1, p {
+    position: relative;
+    text-align: center;
+
+}
+
+#col_left {
+    float: left;
+
+}
+
+#col_right {
+    float: right;
+}
+
+#col_left, #col_right{
+    border: 2px solid whitesmoke;
+    width: 24.5%;
+    display: block;
+    position: relative;
+    visibility: hidden;
+    content: "\00A0";
+
+}
+
+#error {
+    font-size: 1.3em;
+    color: whitesmoke;
+    text-align: center;
+    background-color: #640202;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    alignment: center;
+    width: auto;
+
+}
+
+
+fieldset {
+    border: none;
+}
+
+label {
+    width: 75%;
+    float: left;
+    text-align: left;
+    padding-left: 5%;
+}
+
+
+form {
+    font-family: Leelawadee, "Lucida Sans", sans-serif;
+    font-size: 1em;
+    margin-top: 5%;
+    padding-top: 1%;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    background-color: rgb(217, 198, 198);
+    border: #362821 2px solid;
+    width: 25%;
+    overflow: hidden;
+    min-width: 400px;
+
+}
+
+.out_of {
+    position: relative;
+    width: 3%;
+    left: 120px;
+    float: right;
+}
+
+input[type="text"] {
+    width: 90px;
+    float: right;
+    position: relative;
+    height: 20px;
+
+
+}
+
+
+.hidden {
+    display: none;
+
+}
+
+.quizzes {
+
+}
+
+
+
+.results {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 2em;
+    color:black;
+    background-color: rgba(255, 210, 210, 0.79);
+}
+
+.button {
+    margin-top: 3%;
+    alignment: center;
+    width: 40%;
+    font-family: Leelawadee, "Lucida Sans", sans-serif;
+
+}
+
+input[type="reset"] {
+    margin-left: 2%;
+}
+
+input[placeholder="enter a number"] {
+    font-size: 0.6em;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+}
