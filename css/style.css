@@ -21,23 +21,36 @@ body {
     background-image: url("images/1176282.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 
 }
 
 #int_col_left {
     float: left;
-    border: 2px solid whitesmoke;
+
     width: 20%;
-    content: "\00A0";
-    visibility: hidden;
+
 }
 
 #int_col_right {
     float: right;
-    border: 2px solid whitesmoke;
     width: 20%;
-    content: "\00A0";
-    visibility: hidden;
+}
+
+#omg1, #omg2 {
+    width: 150%;
+    alignment: center;
+    position: relative;
+    overflow: no-display;
+    z-index: -1;
+}
+
+#omg1 {
+    left: 20px;
+}
+
+#omg2 {
+    right: 180px;
 
 }
 
@@ -187,5 +200,9 @@ input[placeholder="enter a number"] {
 
 
 @media only screen and (max-width: 600px) {
+
+    #omg1, #omg2 {
+        display: none;
+    }
 
 }

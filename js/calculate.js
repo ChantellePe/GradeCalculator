@@ -1,9 +1,8 @@
-window.addEventListener("load", function (e) {
+window.onload = function() {
     document.getElementById("grades").addEventListener("reset", resetPage);
     document.getElementById("grades").addEventListener("submit", validate);
     $("input").on("click", removeError)
-
-});
+    };
 
 let finalMark;
 let finalGrade;
@@ -18,23 +17,23 @@ function validate(e){
     let ass3 = $("input[name=assignment3]").val();
     let exam = $("input[name=exam]").val();
 
-    if (isNaN(quizMark) || quizMark == null || quizMark == "") {
+    if (isNaN(quizMark) || quizMark === null || quizMark === "") {
         addError("You must enter a number in quizzes");
     } else if (quizMark > 60) {
         addError("Quiz score must be under 60");
-    } else if (isNaN(ass1) || ass1 == null || ass1 == "") {
+    } else if (isNaN(ass1) || ass1 === null || ass1 === "") {
         addError("You must enter a number in Assignment 1");
     } else if (ass1 > 100) {
         addError("Assignment 1 grade is out of 100");
-    } else if (isNaN(ass2) || ass2 == null || ass2 == "") {
+    } else if (isNaN(ass2) || ass2 === null || ass2 === "") {
         addError("You must enter a number in Assignment 2");
     } else if (ass2 > 100) {
         addError("Assignment 2 grade is out of 100");
-    } else if (isNaN(ass3) || ass3 == null || ass3 == "") {
+    } else if (isNaN(ass3) || ass3 === null || ass3 === "") {
         addError("You must enter a number in Assignment 3");
     } else if (ass3 > 100) {
         addError("Assignment 3 grade is out of 100");
-    } else if (isNaN(exam) || exam == null || exam == "") {
+    } else if (isNaN(exam) || exam == null || exam === "") {
         addError("You must enter a number in Exam");
     } else if (exam > 100) {
         addError("Exam grade is out of 100");
@@ -71,7 +70,6 @@ function calculateGrade() {
     }
     console.log(total);
     finalMark = parseInt(total);
-
 }
 
 function displayFinalGrades() {
@@ -81,6 +79,7 @@ function displayFinalGrades() {
         let grades = document.getElementById("resultGrade");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
+        console.log($("#resultMark").hasClass("hidden"));
         if (finalMark > 85) {
             finalGrade = "You have achieved a High Distinction";
         } else if (finalMark < 85 && finalMark > 75) {
@@ -97,6 +96,21 @@ function displayFinalGrades() {
         results.appendChild(markNode);
         grades.appendChild(gradeNode);
         $(".button[type=submit]").prop('disabled', true);
+       // if ($("#resultMark").hasClass("hidden") === false) {
+        //    $("#description").slideUp(300);
+       // }
+        if (finalGrade === "You have achieved a High Distinction") {
+            setInterval(setInterval(() => {
+                $("#int_col_left").removeClass("hidden")
+                $("#int_col_right").removeClass("hidden")
+                $("#omg1").fadeIn();
+                $("#omg1").fadeOut();
+                $("#omg2").fadeIn();
+                $("#omg2").fadeOut();
+            }, 750));
+        }
+
+
     }
 }
 
