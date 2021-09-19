@@ -59,7 +59,7 @@ function calculateGrade() {
     let assignment2 = parseInt(document.getElementsByClassName("input_box")[2].value);
     let assignment3 = parseInt(document.getElementsByClassName("input_box")[3].value);
     let exam = parseInt(document.getElementsByClassName("input_box")[4].value);
-    let length = document.getElementsByClassName("input_box").length;
+    //let length = document.getElementsByClassName("input_box").length;
     gradeArray.push((quizzes/60) * 10);
     gradeArray.push((assignment1/100) * 10);
     gradeArray.push((assignment2/100) * 15);
@@ -73,7 +73,8 @@ function calculateGrade() {
 }
 
 function displayFinalGrades() {
-    if ($(".button[type=submit]").prop('disabled', false)) {
+    let $submitButton = $(`.button[type=submit]`);
+    if ($submitButton.prop('disabled', false)) {
         calculateGrade();
         let results = document.getElementById("resultMark");
         let grades = document.getElementById("resultGrade");
@@ -96,21 +97,22 @@ function displayFinalGrades() {
         results.appendChild(markNode);
         grades.appendChild(gradeNode);
         $(".button[type=submit]").prop('disabled', true);
-       // if ($("#resultMark").hasClass("hidden") === false) {
-        //    $("#description").slideUp(300);
-       // }
+        if (finalGrade !== null) {
+            $("#description").slideUp(600);
+            console.log("dsfsfds");
+        }
         if (finalGrade === "You have achieved a High Distinction") {
             setInterval(setInterval(() => {
+                let $omg1 = $("#omg1");
+                let $omg2 = $("#omg2");
                 $("#int_col_left").removeClass("hidden")
                 $("#int_col_right").removeClass("hidden")
-                $("#omg1").fadeIn();
-                $("#omg1").fadeOut();
-                $("#omg2").fadeIn();
-                $("#omg2").fadeOut();
+                $omg1.fadeIn();
+                $omg1.fadeOut();
+                $omg2.fadeIn();
+                $omg2.fadeOut();
             }, 750));
         }
-
-
     }
 }
 
