@@ -98,7 +98,7 @@ function displayFinalGrades() {
         grades.appendChild(gradeNode);
         $(".button[type=submit]").prop('disabled', true);
         if (finalGrade !== null) {
-            $("#description").slideUp(600);
+            $("#description").slideUp(400);
             console.log("dsfsfds");
         }
         if (finalGrade === "You have achieved a High Distinction") {

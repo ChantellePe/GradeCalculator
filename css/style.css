@@ -146,6 +146,7 @@ form {
 }
 
 .out_of {
+    margin-top: 1.2%;
     position: relative;
     width: 3%;
     left: 120px;
