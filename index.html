@@ -1,74 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>COSC260 Grade Calculator</title>
+    <title>COSC540 Grade Calculator</title>
     <meta name="author" content="Chantelle Perreau">
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/calculate.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <h1 id="title">COSC260 Grade Calculator</h1>
-  <p id="description">This calculator accepts your assessment grades and calculates your final mark and grade.</p>
- <!-- <div id="col_left"></div>
+    <h1 id="title">UNE Grade Calculator</h1>
+    <p id="description">Written in vanilla JS, this calculator accepts your assessment grades and calculates your final
+        mark and grade. <br><br> Animations were achieved using JQuery.</p>
+    <!-- <div id="col_left"></div>
   <div id="col_right"></div> -->
-  <div class="content">
-      <div id="int_col_left" class="hidden">
-          <img id = "omg1" src="css/images/NicePng_omg-png_4936277.png" alt="OMG OMG OMG">
-      </div>
-      <div id="int_col_right" class="hidden">
-          <img id = "omg2" src="css/images/NicePng_omg-png_4936277.png" alt="OMG OMG OMG">
-      </div>
-      <div id="formdiv" style="align-content: center">
-          <form id="grades">
-            <fieldset>
-                <label for="quizzes" class="quizzes">Quizzes:
-                    <input id = "quizzes" type="text" name="quizzes" class="input_box" placeholder="enter a number" >
-                    <span class="out_of">/60&nbsp&nbsp</span>
-                </label>
-            </fieldset>
-            <fieldset>
-                <label for="assignment1">Assignment One:
-                    <input id = "assignment1" type="text" name="assignment1" class="input_box" placeholder="enter a number" >
-                    <span class="out_of">/100</span>
-                </label>
-            </fieldset>
-            <fieldset>
-              <label for="assignment2">Assignment Two:
-                  <input id = "assignment2" type="text" name="assignment2" class="input_box" placeholder="enter a number" >
-                  <span class="out_of">/100</span>
-              </label>
-            </fieldset>
-            <fieldset>
-              <label for="assignment3">Assignment Three:
-                  <input id = "assignment3" type="text" name="assignment3" class="input_box" placeholder="enter a number" >
-                  <span class="out_of">/100</span>
-              </label>
-            </fieldset>
-            <fieldset>
-              <label for="Exam">Exam:
-                  <input id = "Exam" type="text" name="exam" class="input_box" placeholder="enter a number" > <span class="out_of">/100</span>
-              </label>
-            </fieldset>
-            <fieldset>
-                <input type="submit" class="button" >
-                <input type="reset" class="button">
-            </fieldset>
-            <div id=error></div>
-          </form>
-      </div>
+    <div class="main">
+        <div id="menu">
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC110</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC120</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC220</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC230</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC260</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC510</div>
+                </button>
+            </a>
+            <a href="COSC540.html">
+                <button class="units">
+                    <div>COSC540</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC560</div>
+                </button>
+            </a>
+            <br>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC570</div>
+                </button>
+            </a>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC572</div>
+                </button>
+            </a>
+            <br>
+            <a href="COSC260.html">
+                <button class="units">
+                    <div>COSC580</div>
+                </button>
+            </a>
+        </div>
 
-      <article class="results">
-          <div id="resultMark" class="hidden">
-
-          </div>
-          <div id="resultGrade" class="hidden">
-
-          </div>
-      </article>
-  </div>
+    </div>
+    </article>
+    </div>
 
 </body>
+
 </html>

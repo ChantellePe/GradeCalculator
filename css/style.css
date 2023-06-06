@@ -1,21 +1,85 @@
 /* Style Sheet for the Grade Calculator*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-
-}
-
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {}
 
 body {
     background-image: url("images/1176282.jpg");
@@ -27,9 +91,11 @@ body {
 
 #int_col_left {
     float: left;
-
     width: 20%;
+}
 
+#title {
+    text-align: center;
 }
 
 #int_col_right {
@@ -37,7 +103,8 @@ body {
     width: 20%;
 }
 
-#omg1, #omg2 {
+#omg1,
+#omg2 {
     width: 150%;
     alignment: center;
     position: relative;
@@ -55,10 +122,18 @@ body {
 }
 
 .content {
+
     width: 100%;
     align-content: center;
 
     /*border: 2px solid whitesmoke;*/
+}
+
+.main {
+    width: 100%;
+    display: grid;
+    margin-left: 10%;
+    position: relative;
 }
 
 h1 {
@@ -74,10 +149,11 @@ h1 {
 p {
     font-family: Leelawadee, "Lucida Sans", sans-serif;
     font-size: 1.4em;
-    color:floralwhite;
+    color: floralwhite;
 }
 
-.content h1, p {
+.content h1,
+p {
     position: relative;
     text-align: center;
 
@@ -92,7 +168,8 @@ p {
     float: right;
 }
 
-#col_left, #col_right{
+#col_left,
+#col_right {
     border: 2px solid whitesmoke;
     width: 24.5%;
     display: block;
@@ -111,9 +188,7 @@ p {
     margin-bottom: 1%;
     alignment: center;
     width: auto;
-
 }
-
 
 fieldset {
     border: none;
@@ -129,10 +204,9 @@ label {
 
 form {
     font-family: Leelawadee, "Lucida Sans", sans-serif;
-    font-size: 1em;
+    font-size: 1.3rem;
     margin-top: 5%;
     padding-top: 1%;
-
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -142,49 +216,92 @@ form {
     width: 25%;
     overflow: hidden;
     min-width: 400px;
+}
 
+.units {
+    font-family: Leelawadee, "Lucida Sans", sans-serif;
+    font-size: 1.3rem;
+    padding: 20px 20px;
+    margin: 1%;
+    display: grid;
+    text-align: center;
+    background-color: rgb(217, 198, 198);
+    border: #362821 2px solid;
+    min-width: 20%;
+    overflow: hidden;
+
+}
+
+.home {
+    font-family: Leelawadee, "Lucida Sans", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    background-color: rgb(217, 198, 198);
+    width: 200px;
+    overflow: hidden;
+    min-width: 200px;
+}
+
+#menu {
+    min-width: 20%;
+    width: 80%;
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-rows: 150px 150px 150px 150px;
+
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
 }
 
 .out_of {
     margin-top: 1.2%;
     position: relative;
     width: 3%;
-    left: 120px;
+    left: 130px;
     float: right;
 }
 
 input[type="text"] {
-    width: 90px;
+
+    width: 100px;
     float: right;
     position: relative;
     height: 20px;
-
-
 }
 
+a {
+    text-decoration: none;
+    margin: 1%;
+    display: inline-block;
+}
 
 .hidden {
     display: none;
 
 }
 
-.quizzes {
-
-}
-
-
-
 .results {
-    margin-top: 5%;
+    margin-top: 1%;
     text-align: center;
     font-size: 2em;
-    color:black;
+    color: black;
     background-color: rgba(255, 210, 210, 0.9);
 }
 
 .button {
     margin-top: 3%;
-    alignment: center;
+    font-size: 1.5rem;
+    background-color: bisque;
     width: 40%;
     font-family: Leelawadee, "Lucida Sans", sans-serif;
 
@@ -195,15 +312,59 @@ input[type="reset"] {
 }
 
 input[placeholder="enter a number"] {
-    font-size: 0.6em;
+    font-size: 0.8rem;
 }
 
+#homeButton {
+    font-family: Leelawadee, "Lucida Sans", sans-serif;
+    font-size: 1.3rem;
+    padding: 15px 15px;
+
+    text-align: center;
+    position: relative;
+    display: block;
+    background-color: rgb(217, 198, 198);
 
 
-@media only screen and (max-width: 600px) {
+}
 
-    #omg1, #omg2 {
+@media only screen and (max-width: 1800px) {
+
+    #omg1,
+    #omg2 {
         display: none;
     }
 
+    p,
+    form,
+    label {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 600p) {
+
+    #omg1,
+    #omg2 {
+        display: none;
+    }
+
+    p,
+    form,
+    label {
+        font-size: 1rem;
+    }
+
+    #homeButton {
+        padding: 4px 4px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .home,
+    #homeButton {
+        width: 100%;
+
+    }
 }

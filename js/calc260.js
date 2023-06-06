@@ -1,21 +1,25 @@
-window.onload = function() {
+window.onload = function () {
     document.getElementById("grades").addEventListener("reset", resetPage);
     document.getElementById("grades").addEventListener("submit", validate);
-    $("input").on("click", removeError)
-    };
+    let inputs = document.getElementsByTagName("input");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("click", removeError);
+    }
+};
 
 let finalMark;
 let finalGrade;
-let gradeArray=[];
+let gradeArray = [];
 let total = 0;
 
-function validate(e){
+function validate(e) {
     e.preventDefault();
-    let quizMark = $("input[name=quizzes]").val();
-    let ass1 = $("input[name=assignment1]").val();
-    let ass2 = $("input[name=assignment2]").val();
-    let ass3 = $("input[name=assignment3]").val();
-    let exam = $("input[name=exam]").val();
+    let ass1 = document.querySelector("input[name=assignment1]").value;
+    let quizMark = document.querySelector("input[name=quizzes]").value;
+    let ass2 = document.querySelector("input[name=assignment2]").value;
+    let ass3 = document.querySelector("input[name=assignment3]").value;
+    let exam = document.querySelector("input[name=exam]").value;
+    finalGrade = "";
 
     if (isNaN(quizMark) || quizMark === null || quizMark === "") {
         addError("You must enter a number in quizzes");
@@ -43,13 +47,16 @@ function validate(e){
     }
 }
 
-function addError(message){
-    $("#error").append("<div id='error1'>"+message+"</div>");
-
+function addError(message) {
+    let errorDiv = document.createElement("div");
+    errorDiv.id = "error1";
+    errorDiv.textContent = message;
+    let errorContainer = document.getElementById("error");
+    errorContainer.appendChild(errorDiv);
 }
 
-function removeError(e){
-    $("#error").html("");
+function removeError(e) {
+    document.getElementById("error").innerHTML = "";
 }
 
 function calculateGrade() {
@@ -60,12 +67,12 @@ function calculateGrade() {
     let assignment3 = parseInt(document.getElementsByClassName("input_box")[3].value);
     let exam = parseInt(document.getElementsByClassName("input_box")[4].value);
     //let length = document.getElementsByClassName("input_box").length;
-    gradeArray.push((quizzes/60) * 10);
-    gradeArray.push((assignment1/100) * 10);
-    gradeArray.push((assignment2/100) * 15);
-    gradeArray.push((assignment3/100) * 15);
-    gradeArray.push((exam/100) * 50);
-    for (x=0; x<gradeArray.length; x++) {
+    gradeArray.push((quizzes / 60) * 10);
+    gradeArray.push((assignment1 / 100) * 10);
+    gradeArray.push((assignment2 / 100) * 15);
+    gradeArray.push((assignment3 / 100) * 15);
+    gradeArray.push((exam / 100) * 50);
+    for (x = 0; x < gradeArray.length; x++) {
         total += gradeArray[x];
     }
     console.log(total);
@@ -73,14 +80,13 @@ function calculateGrade() {
 }
 
 function displayFinalGrades() {
-    let $submitButton = $(`.button[type=submit]`);
-    if ($submitButton.prop('disabled', false)) {
+    let submitButton = document.querySelector('.button[type="submit"]');
+    if (submitButton.disabled === false) {
         calculateGrade();
         let results = document.getElementById("resultMark");
         let grades = document.getElementById("resultGrade");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
-        console.log($("#resultMark").hasClass("hidden"));
         if (finalMark > 85) {
             finalGrade = "You have achieved a High Distinction";
         } else if (finalMark < 85 && finalMark > 75) {
@@ -96,17 +102,15 @@ function displayFinalGrades() {
         let gradeNode = document.createTextNode(finalGrade)
         results.appendChild(markNode);
         grades.appendChild(gradeNode);
-        $(".button[type=submit]").prop('disabled', true);
         if (finalGrade !== null) {
             $("#description").slideUp(400);
-            console.log("dsfsfds");
         }
         if (finalGrade === "You have achieved a High Distinction") {
             setInterval(setInterval(() => {
                 let $omg1 = $("#omg1");
                 let $omg2 = $("#omg2");
-                $("#int_col_left").removeClass("hidden")
-                $("#int_col_right").removeClass("hidden")
+                document.getElementById("int_col_left").classList.remove("hidden");
+                document.getElementById("int_col_right").classList.remove("hidden");
                 $omg1.fadeIn();
                 $omg1.fadeOut();
                 $omg2.fadeIn();
@@ -115,6 +119,8 @@ function displayFinalGrades() {
         }
     }
 }
+
+
 
 function resetPage(e) {
     location.reload();
