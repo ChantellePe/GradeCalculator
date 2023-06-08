@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>University Grade Calculator</title>
+    <meta name="author" content="Chantelle Perreau">
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/customCalc.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 id="title">University Grade Calculator</h1>
+    <p id="description">Written in vanilla JS, this calculator accepts your assessment grades and calculates your final
+        mark and grade. <br><br> Animations were achieved using JQuery.</p>
+    <div id="questionairre">
+        <form id="info">
+            <fieldset>
+                <label class="infoLabel" for="assignmentNum">How many assessments in total <br> (excluding the final
+                    exam)?</label>
+            </fieldset>
+            <fieldset>
+                <input id="assignmentNum" type="number" name="assignmentNumber" class="input" min="0" max="10">
+            </fieldset>
+            <fieldset>
+                <label class="infoLabel" for="examBool">Final exam?</label>
+            </fieldset>
+            <select id="examBool" name="examBool">
+                <option value="True">Yes</option>
+                <option value="False">No</option>
+            </select>
+            <fieldset>
+                <input id="submit" type="submit" class="button">
+            </fieldset>
+        </form>
+        <a class="home" href="index.html">
+            <button class="homeButton">
+                <div>Home</div>
+            </button>
+        </a>
+    </div>
+    <!-- <div id="col_left"></div>
+  <div id="col_right"></div> -->
+    <div id="customMain" class="content hidden">
+        <div id="int_col_left" class="hidden">
+            <img id="omg1" src="css/images/NicePng_omg-png_4936277.png" alt="OMG OMG OMG">
+        </div>
+        <div id="int_col_right" class="hidden">
+            <img id="omg2" src="css/images/NicePng_omg-png_4936277.png" alt="OMG OMG OMG">
+        </div>
+        <div id="formdiv" style="align-content: center">
+            <form id="gradesCustom">
+                <fieldset id="A1">
+                    <label for="assignment1" class="cust_assignment">Assessment One:
+                        <input id="assignment1" type="text" name="assignment1" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf1" class="cust_out_of"> / </span><input type="text" id="oFA1" name="oFA1"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA1" class="weight"></span><input type="text" name="weightA1" id="input_weightA1"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A2">
+                    <label for="assignment2" class="cust_assignment">Assessment Two:
+                        <input id="assignment2" type="text" name="assignment2" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf2" class="cust_out_of">/</span><input type="text" id="oFA2" name="oFA2"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA2" class="weight"></span><input type="text" name="weightA2" id="input_weightA2"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A3">
+                    <label for="assignment3" class="cust_assignment">Assessment Three:
+                        <input id="assignment3" type="text" name="assignment3" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf3" class="cust_out_of">/</span><input type="text" id="oFA3" name="oFA3"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA3" class="weight"></span><input type="text" name="weightA3" id="input_weightA3"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A4">
+                    <label for="assignment" class="cust_assignment">Assessment Four:
+                        <input id="assignment4" type="text" name="assignment4" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf4" class="cust_out_of">/</span><input type="text" id="oFA4" name="oFA4"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA4" class="weight"></span><input type="text" name="weightA4" id="input_weightA4"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A5">
+                    <label for="assignment" class="cust_assignment">Assignment Five:
+                        <input id="assignment5" type="text" name="assignment5" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf5" class="cust_out_of">/</span><input type="text" id="oFA5" name="oFA5"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA5" class="weight"></span><input type="text" name="weightA5" id="input_weightA5"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A6">
+                    <label for="assignment" class="cust_assignment">Assignment Six:
+                        <input id="assignment6" type="text" name="assignment6" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf6" class="cust_out_of">/</span><input type="text" id="oFA6" name="oFA6"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA6" class="weight"></span><input type="text" name="weightA6" id="input_weightA6"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A7">
+                    <label for="assignment" class="cust_assignment">Assignment Seven:
+                        <input id="assignment7" type="text" name="assignment7" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf7" class="cust_out_of">/</span><input type="text" id="oFA7" name="oFA7"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA7" class="weight"></span><input type="text" name="weightA7" id="input_weightA7"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A8">
+                    <label for="assignment" class="cust_assignment">Assignment Eight:
+                        <input id="assignment8" type="text" name="assignment8" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf8" class="cust_out_of">/</span><input type="text" id="oFA8" name="oFA8"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA8" class="weight"></span><input type="text" name="weightA8" id="input_weightA8"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A9">
+                    <label for="assignment" class="cust_assignment">Assignment Nine:
+                        <input id="assignment9" type="text" name="assignment9" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf9" class="cust_out_of">/</span><input type="text" id="oFA9" name="oFA9"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA9" class="weight"></span><input type="text" name="weightA9" id="input_weightA9"
+                            class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="A10">
+                    <label for="assignment" class="cust_assignment">Assignment Ten:
+                        <input id="assignment10" type="text" name="assignment10" class="cust_input_box"
+                            placeholder="Grade">
+                        <span id="outOf10" class="cust_out_of">/</span><input type="text" id="oFA10" name="oFA10"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA10" class="weight"></span><input type="text" name="weightA10"
+                            id="input_weightA10" class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset id="examField" class="exam">
+                    <label for="Exam" class="cust_assignment">Exam:
+                        <input id="exam" type="text" name="exam" class="cust_input_box" placeholder="Grade">
+                        <span id="outOf11" class="cust_out_of">/</span><input type="text" id="oFA11" name="oFEx"
+                            class="input_oFA" placeholder="Total">
+                        <span id="weightA11" class="weight"></span><input type="text" name="weightA11"
+                            id="input_weightA11" class="input_weight" placeholder="Weight(%)">
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <input id="submitButton" type="submit" class="button">
+                    <input type="reset" class="button">
+                </fieldset>
+                <div id=error></div>
+            </form>
+            <a class="home" href="customCourse.html">
+                <button class="homeButton">
+                    <div>Go Back</div>
+                </button>
+            </a>
+        </div>
+
+        <article class="results">
+            <div id="resultMark" class="hidden">
+
+            </div>
+            <div id="resultGrade" class="hidden">
+
+            </div>
+
+
+        </article>
+    </div>
+
+</body>
+
+</html>
