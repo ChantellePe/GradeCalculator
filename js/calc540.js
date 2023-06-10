@@ -11,6 +11,7 @@ let finalMark;
 let finalGrade;
 let gradeArray = [];
 let total = 0;
+let animationInterval;
 
 function validate(e) {
     e.preventDefault();
@@ -113,6 +114,7 @@ function displayFinalGrades() {
             $("#description").slideUp(400);
         }
         if (finalGrade === "You have achieved a High Distinction") {
+            console.log(finalGrade)
             animationInterval = setInterval(() => {
                 document.getElementById("int_col_left").classList.remove("hidden");
                 document.getElementById("int_col_right").classList.remove("hidden");

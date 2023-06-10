@@ -11,6 +11,7 @@ let finalMark;
 let finalGrade;
 let gradeArray = [];
 let total = 0;
+let animationInterval;
 
 function validate(e) {
     e.preventDefault();
@@ -47,20 +48,16 @@ function validate(e) {
     }
 }
 
-function addError(message) {
-    let errorDiv = document.createElement("div");
-    errorDiv.id = "error1";
-    errorDiv.textContent = message;
-    let errorContainer = document.getElementById("error");
-    errorContainer.appendChild(errorDiv);
-}
-
-function removeError(e) {
-    document.getElementById("error").innerHTML = "";
-}
-
 function calculateGrade() {
-    finalMark = 0;
+
+    let results = document.getElementById("resultMark");
+    let grades = document.getElementById("resultGrade");
+    grades.innerHTML = "";
+    results.innerHTML = "";
+    finalMark = "";
+    finalGrade = "";
+    gradeArray = [];
+    total = 0;
     let quizzes = parseInt(document.getElementsByClassName("input_box")[0].value);
     let assignment1 = parseInt(document.getElementsByClassName("input_box")[1].value);
     let assignment2 = parseInt(document.getElementsByClassName("input_box")[2].value);
@@ -87,15 +84,15 @@ function displayFinalGrades() {
         let grades = document.getElementById("resultGrade");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
-        if (finalMark > 85) {
+        if (finalMark >= 85) {
             finalGrade = "You have achieved a High Distinction";
         } else if (finalMark < 85 && finalMark > 75) {
             finalGrade = "You have achieved a Distinction";
-        } else if (finalMark < 75 && finalMark > 65) {
+        } else if (finalMark <= 75 && finalMark > 65) {
             finalGrade = "You have achieved a Credit";
-        } else if (finalMark < 65 && finalMark > 50) {
+        } else if (finalMark <= 65 && finalMark > 50) {
             finalGrade = "You have achieved a Pass";
-        } else if (finalMark < 50) {
+        } else if (finalMark <= 50) {
             finalGrade = "You have achieved a Fail";
         }
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
@@ -106,7 +103,7 @@ function displayFinalGrades() {
             $("#description").slideUp(400);
         }
         if (finalGrade === "You have achieved a High Distinction") {
-            setInterval(setInterval(() => {
+            animationInterval = setInterval(() => {
                 let $omg1 = $("#omg1");
                 let $omg2 = $("#omg2");
                 document.getElementById("int_col_left").classList.remove("hidden");
@@ -115,13 +112,25 @@ function displayFinalGrades() {
                 $omg1.fadeOut();
                 $omg2.fadeIn();
                 $omg2.fadeOut();
-            }, 750));
+            }, 100);
+        } else {
+            clearInterval(animationInterval)
         }
     }
 }
 
-
-
 function resetPage(e) {
     location.reload();
+}
+
+function addError(message) {
+    let errorDiv = document.createElement("div");
+    errorDiv.id = "error1";
+    errorDiv.textContent = message;
+    let errorContainer = document.getElementById("error");
+    errorContainer.appendChild(errorDiv);
+}
+
+function removeError(e) {
+    document.getElementById("error").innerHTML = "";
 }

@@ -13,8 +13,9 @@
 </head>
 
 <body>
-    <h1 id="title">COSC260 Grade Calculator</h1>
-    <p id="description">Calulate your grade for COSC260 - Web Development</p>
+    <div class="strip">
+        <h1 class="title_units">COSC260 Calculator</h1>
+    </div>
     <!-- <div id="col_left"></div>
   <div id="col_right"></div> -->
     <div class="content">
@@ -29,14 +30,14 @@
                 <fieldset>
                     <label class="a_label" for="assignment1">Quizzes:
                         <input id="quizzes" type="text" name="quizzes" class="input_box" placeholder="Enter grade">
-                        <span class="out_of">/10</span>
+                        <span class="out_of">/60</span>
                     </label>
                 </fieldset>
                 <fieldset>
                     <label class="a_label" for="assignment1">Assignment One:
                         <input id="assignment1" type="text" name="assignment1" class="input_box"
                             placeholder="Enter grade">
-                        <span class="out_of">/10</span>
+                        <span class="out_of">/100</span>
                     </label>
                 </fieldset>
                 <fieldset>
@@ -65,13 +66,14 @@
                 </fieldset>
                 <div id=error></div>
             </form>
-            <a class="home" href="index.html">
-                <button class="homeButton">
-                    <div>Home</div>
-                </button>
+            <div class="homeButton">
+                <a href="index.html">
+                    <button class="home">
+                        <div>Home</div>
+                    </button>
+            </div>
             </a>
         </div>
-
         <article class="results">
             <div id="resultMark" class="hidden">
 

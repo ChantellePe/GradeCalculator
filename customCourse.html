@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>University Grade Calculator</title>
+    <title>Custom University Grade Calculator</title>
     <meta name="author" content="Chantelle Perreau">
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <h1 id="title">University Grade Calculator</h1>
-    <p id="description">Written in vanilla JS, this calculator accepts your assessment grades and calculates your final
-        mark and grade. <br><br> Animations were achieved using JQuery.</p>
+    <div class="strip">
+        <h1 class="title_units">Custom Grade Calculator</h1>
+    </div>
     <div id="questionairre">
         <form id="info">
             <fieldset>
@@ -36,11 +36,14 @@
                 <input id="submit" type="submit" class="button">
             </fieldset>
         </form>
-        <a class="home" href="index.html">
-            <button class="homeButton">
-                <div>Home</div>
-            </button>
-        </a>
+        <div class="homeButton">
+            <a href="index.html">
+                <button class="custom_home">
+                    <div>Home</div>
+                </button>
+            </a>
+        </div>
+
     </div>
     <!-- <div id="col_left"></div>
   <div id="col_right"></div> -->
@@ -168,11 +171,13 @@
                 </fieldset>
                 <div id=error></div>
             </form>
-            <a class="home" href="customCourse.html">
-                <button class="homeButton">
-                    <div>Go Back</div>
-                </button>
-            </a>
+            <div class="homeButton">
+                <a href="customCourse.html">
+                    <button class="custom_home">
+                        <div>Go Back</div>
+                    </button>
+                </a>
+            </div>
         </div>
 
         <article class="results">

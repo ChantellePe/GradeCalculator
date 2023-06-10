@@ -113,11 +113,12 @@ function getGradeValues() {
     let weightArray = [];
     const weightValues = getValues("input_weight", weightArray);
     const totalValues = getValues("input_oFA", totalArray);
-    const rawGrades = getValues("input_box", rawGradeArray);
+    const rawGrades = getValues("cust_input_box", rawGradeArray);
     console.log(weightValues)
     console.log(totalValues)
     console.log(rawGrades)
     for (let i = 0; i < rawGrades.length; i++) {
+        console.log(rawGrades[i], totalValues[i], weightValues[i])
         gradeArray.push((rawGrades[i] / totalValues[i]) * weightValues[i]);
     }
     console.log(gradeArray)
@@ -176,6 +177,7 @@ function displayFinalGrades() {
         }
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
         let gradeNode = document.createTextNode(finalGrade)
+        console.log(finalGrade, finalMark)
         results.appendChild(markNode);
         grades.appendChild(gradeNode);
         if (finalGrade !== null) {
