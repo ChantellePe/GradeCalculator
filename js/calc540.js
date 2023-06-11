@@ -61,6 +61,13 @@ function calculateGrade() {
     let grades = document.getElementById("resultGrade");
     grades.innerHTML = "";
     results.innerHTML = "";
+    document.getElementById("int_col_left").classList.add("hidden");
+    document.getElementById("int_col_right").classList.add("hidden");
+    let comparison = document.getElementById("comparison");
+    let challenge = document.getElementById("challenge");
+    comparison.classList.add("hidden")
+    challenge.classList.remove("hidden")
+    comparison.innerHTML = ""
     finalMark = "";
     finalGrade = "";
     gradeArray = [];
@@ -106,6 +113,7 @@ function displayFinalGrades() {
         } else if (finalMark < 50) {
             finalGrade = "You have achieved a Fail";
         }
+        gradeComparison(90, finalMark)
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
         let gradeNode = document.createTextNode(finalGrade)
         results.appendChild(markNode);
@@ -114,19 +122,43 @@ function displayFinalGrades() {
             $("#description").slideUp(400);
         }
         if (finalGrade === "You have achieved a High Distinction") {
-            console.log(finalGrade)
-            animationInterval = setInterval(() => {
-                document.getElementById("int_col_left").classList.remove("hidden");
-                document.getElementById("int_col_right").classList.remove("hidden");
-                let $omg1 = $("#omg1");
-                let $omg2 = $("#omg2");
-                $omg1.fadeIn();
-                $omg1.fadeOut();
-                $omg2.fadeIn();
-                $omg2.fadeOut();
-            }, 100);
+            let $omg1 = $("#omg1");
+            let $omg2 = $("#omg2");
+            document.getElementById("int_col_left").classList.remove("hidden");
+            document.getElementById("int_col_right").classList.remove("hidden");
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg2.fadeIn();
         }
     }
+}
+
+function gradeComparison(myGrade, calcGrade) {
+    let comparison = document.getElementById("comparison");
+    let challenge = document.getElementById("challenge");
+    if (myGrade > calcGrade) {
+        comparison.classList.remove("hidden")
+        challenge.classList.add("hidden")
+        let difference = myGrade - calcGrade
+        comparison.innerHTML = "Sorry, I beat your grade by " + difference + "%!";
+    } else if (calcGrade > myGrade) {
+        comparison.classList.remove("hidden")
+        challenge.classList.add("hidden")
+        let difference = calcGrade - myGrade
+        comparison.innerHTML = "Well done! You beat my grade by " + difference + "%!";
+    } else {
+        comparison.classList.remove("hidden")
+        challenge.classList.add("hidden")
+        comparison.innerHTML = "Wow! You got the same grade as me! Well done!";
+    }
+
 }
 
 function resetPage(e) {

@@ -140,6 +140,8 @@ function getValues(classname, array) {
 
 
 function calculateGrade() {
+    document.getElementById("int_col_left").classList.add("hidden");
+    document.getElementById("int_col_right").classList.add("hidden");
     let results = document.getElementById("resultMark");
     let grades = document.getElementById("resultGrade");
     grades.innerHTML = "";
@@ -184,19 +186,33 @@ function displayFinalGrades() {
             $("#description").slideUp(400);
         }
         if (finalGrade === "You have achieved a High Distinction") {
-            animationInterval = setInterval(() => {
-                document.getElementById("int_col_left").classList.remove("hidden");
-                document.getElementById("int_col_right").classList.remove("hidden");
-                let $omg1 = $("#omg1");
-                let $omg2 = $("#omg2");
-                $omg1.fadeIn();
-                $omg1.fadeOut();
-                $omg2.fadeIn();
-                $omg2.fadeOut();
-            }, 100);
+            document.getElementById("int_col_left").classList.remove("hidden");
+            document.getElementById("int_col_right").classList.remove("hidden");
+            let $omg1 = $("#omg1");
+            let $omg2 = $("#omg2");
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg2.fadeIn()
         }
     }
 }
+
+
 
 function resetPage(e) {
     location.reload();
