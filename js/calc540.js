@@ -86,7 +86,7 @@ function calculateGrade() {
     let assignment6 = parseInt(document.getElementsByClassName("input_box")[5].value);
     let exam = parseInt(document.getElementsByClassName("input_box")[6].value);
     //let length = document.getElementsByClassName("input_box").length;
-    if ((assignment1 / 10) < 0.48 || (assignment2 / 100) < 0.48 || (assignment3 / 10) < 0.48 || (assignment4 / 100) < 0.48 || (assignment5 / 100) < 0.48 || (assignment6 / 100) < 0.48 || (exam / 100 < 0.48)) {
+    if (exam / 100 < 0.5) {
         autoFail = true;
     }
     gradeArray.push((assignment1 / 10) * 10);
@@ -112,7 +112,7 @@ function displayFinalGrades() {
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
         if (getAutoFail() === true) {
-            finalGrade = "You have failed - you are required to achieve at least 50% in all assessments.";
+            finalGrade = "You have failed - you are required to achieve at least 50% in the exam.";
         } else if (finalMark >= 85) {
             finalGrade = "You have achieved a High Distinction";
         } else if (finalMark < 85 && finalMark >= 75) {
@@ -146,6 +146,14 @@ function displayFinalGrades() {
             $omg2.fadeIn();
             $omg2.fadeOut();
             $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
+            $omg1.fadeOut();
+            $omg2.fadeIn();
+            $omg2.fadeOut();
+            $omg1.fadeIn();
             $omg2.fadeIn();
         }
     }
@@ -158,7 +166,7 @@ function gradeComparison(myGrade, calcGrade) {
         comparison.classList.remove("hidden")
         challenge.classList.add("hidden")
         let difference = myGrade - calcGrade
-        comparison.innerHTML = "Sorry, I beat your grade by " + difference + "%!";
+        comparison.innerHTML = "I beat your grade by " + difference + "%!";
     } else if (calcGrade > myGrade) {
         comparison.classList.remove("hidden")
         challenge.classList.add("hidden")

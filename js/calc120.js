@@ -22,17 +22,12 @@ function getAutoFail() {
 function validate(e) {
     e.preventDefault();
     let ass1 = document.querySelector("input[name=assignment1]").value;
-    let quizMark = document.querySelector("input[name=quizzes]").value;
     let ass2 = document.querySelector("input[name=assignment2]").value;
     let ass3 = document.querySelector("input[name=assignment3]").value;
     let exam = document.querySelector("input[name=exam]").value;
     finalGrade = "";
 
-    if (isNaN(quizMark) || quizMark === null || quizMark === "") {
-        addError("You must enter a number in quizzes");
-    } else if (quizMark > 60) {
-        addError("Quiz score must be under 60");
-    } else if (isNaN(ass1) || ass1 === null || ass1 === "") {
+    if (isNaN(ass1) || ass1 === null || ass1 === "") {
         addError("You must enter a number in Assignment 1");
     } else if (ass1 > 100) {
         addError("Assignment 1 grade is out of 100");
@@ -72,20 +67,18 @@ function calculateGrade() {
     gradeArray = [];
     autoFail = false;
     total = 0;
-    let quizzes = parseInt(document.getElementsByClassName("input_box")[0].value);
-    let assignment1 = parseInt(document.getElementsByClassName("input_box")[1].value);
-    let assignment2 = parseInt(document.getElementsByClassName("input_box")[2].value);
-    let assignment3 = parseInt(document.getElementsByClassName("input_box")[3].value);
-    let exam = parseInt(document.getElementsByClassName("input_box")[4].value);
+    let assignment1 = parseInt(document.getElementsByClassName("input_box")[0].value);
+    let assignment2 = parseInt(document.getElementsByClassName("input_box")[1].value);
+    let assignment3 = parseInt(document.getElementsByClassName("input_box")[2].value);
+    let exam = parseInt(document.getElementsByClassName("input_box")[3].value);
     //let length = document.getElementsByClassName("input_box").length;
     if (exam / 100 < 0.5) {
         autoFail = true;
     }
-    gradeArray.push((quizzes / 60) * 10);
-    gradeArray.push((assignment1 / 100) * 10);
-    gradeArray.push((assignment2 / 100) * 15);
-    gradeArray.push((assignment3 / 100) * 15);
-    gradeArray.push((exam / 100) * 50);
+    gradeArray.push((assignment1 / 100) * 15);
+    gradeArray.push((assignment2 / 100) * 25);
+    gradeArray.push((assignment3 / 100) * 20);
+    gradeArray.push((exam / 100) * 40);
     for (x = 0; x < gradeArray.length; x++) {
         total += gradeArray[x];
     }
@@ -114,7 +107,7 @@ function displayFinalGrades() {
         } else if (finalMark <= 50) {
             finalGrade = "You have achieved a Fail";
         }
-        gradeComparison(95, finalMark)
+        gradeComparison(91, finalMark)
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
         let gradeNode = document.createTextNode(finalGrade)
         results.appendChild(markNode);

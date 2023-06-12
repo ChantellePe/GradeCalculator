@@ -3,22 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>COSC540 Grade Calculator</title>
+    <title>COSC120 Grade Calculator</title>
     <meta name="author" content="Chantelle Perreau">
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/calc540.js"></script>
+    <script type="text/javascript" src="js/calc120.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div class="strip">
-        <h1 class="title_units">COSC540 Calculator</h1>
+        <h1 class="title_units">COSC120 Calculator</h1>
     </div>
+    <!-- <div id="col_left"></div>
+  <div id="col_right"></div> -->
     <div class="content">
-        <p id="challenge">Use the calculator to discover the grade I achieved for COSC540 - Computer Networks and
-            Information Security!
+        <p id="challenge">Use the calculator to discover the grade I achieved for COSC120 - Object Oriented Programming!
         </p>
         <p id="comparison" class="hidden"></p>
         <div id="int_col_left" class="hidden">
@@ -33,7 +34,7 @@
                     <label class="a_label" for="assignment1">Assignment One:
                         <input id="assignment1" type="text" name="assignment1" class="input_box"
                             placeholder="Enter grade">
-                        <span class="out_of">/10</span>
+                        <span class="out_of">/100</span>
                     </label>
                 </fieldset>
                 <fieldset>
@@ -47,27 +48,6 @@
                     <label class="a_label" for="assignment3">Assignment Three:
                         <input id="assignment3" type="text" name="assignment3" class="input_box"
                             placeholder="Enter grade">
-                        <span class="out_of">/10</span>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label class="a_label" for="assignment">Assignment Four:
-                        <input id="assignment4" type="text" name="assignment4" class="input_box"
-                            placeholder="Enter grade">
-                        <span class="out_of">/100</span>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label class="a_label" for="assignment">Assignment Five:
-                        <input id="assignment5" type="text" name="assignment5" class="input_box"
-                            placeholder="Enter grade">
-                        <span class="out_of">/100</span>
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <label class="a_label" for="assignment">Assignment Six:
-                        <input id="assignment6" type="text" name="assignment6" class="input_box"
-                            placeholder="Enter grade">
                         <span class="out_of">/100</span>
                     </label>
                 </fieldset>
@@ -78,7 +58,7 @@
                     </label>
                 </fieldset>
                 <fieldset>
-                    <input id="submitButton" type="submit" class="button">
+                    <input type="submit" class="button">
                     <input type="reset" class="button">
                 </fieldset>
                 <div id=error></div>
@@ -96,6 +76,7 @@
 
             </div>
             <div id="resultGrade" class="hidden">
+
             </div>
         </article>
     </div>
