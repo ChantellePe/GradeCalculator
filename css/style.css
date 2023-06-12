@@ -208,8 +208,8 @@ p {
     width: 100%;
     position: relative;
     align-self: center;
-    margin-top: -1%;
-    line-height: 1rem;
+    margin-top: -1.4%;
+    line-height: 1.6rem;
 }
 
 .content h1,
@@ -348,7 +348,7 @@ form {
 .units:hover {
     background-color: rgba(58, 58, 58, 0.712);
     color: white;
-    height: 150px;
+    height: 140px;
     transform: translateY(-5px);
     transition: height 1s;
 }
@@ -386,6 +386,10 @@ form {
     min-width: 20%;
 }
 
+.home {
+    margin-top: 1.4%;
+}
+
 .homeButton {
     display: grid;
     position: relative;
@@ -393,8 +397,11 @@ form {
     align-self: center;
     width: 100%;
     align-content: center;
+    transition: transform 600ms;
 
 }
+
+
 
 .custom_home:hover {
     background-color: rgba(151, 121, 121, 0.678);
@@ -447,6 +454,7 @@ button:hover {
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
     border-radius: 20px;
     position: relative;
+    transition: transform 600ms;
 }
 
 #custom:hover {
@@ -459,11 +467,12 @@ button:hover {
 
 }
 
-#back:hover {
+#back:hover,
+.home:hover {
     background-color: rgba(119, 88, 88, 0.719);
     color: white;
     font-size: 1.4rem;
-    transform: translateY(-7px);
+    transform: translateY(-10px);
     white-space: nowrap;
 
 }
