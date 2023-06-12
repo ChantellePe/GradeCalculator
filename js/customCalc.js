@@ -13,6 +13,7 @@ let finalGrade;
 let gradeArray = [];
 let total = 0;
 let hasErr = false;
+let autoFail = false;
 
 function getCalcInfo(e) {
     e.preventDefault();
@@ -24,10 +25,14 @@ function getCalcInfo(e) {
     let hasExam = document.querySelector("select[name=examBool]").value;
     hideElements(parseInt(numberOfAssignments))
     if (hasExam !== 'True') {
+        console.log(hasExam)
         document.getElementById("examField").classList.add("hidden");
+        document.getElementById(`oFex`).classList.add("hidden");
+        document.getElementById(`input_weight_ex`).classList.add("hidden");
+        document.getElementById(`oFex`).classList.add("hidden");
+        document.getElementById(`exam`).classList.add("hidden");
+        document.getElementById(`outOf11`).classList.add("hidden");
     }
-
-
 }
 
 function hideElements(numOfAssessments) {
@@ -47,6 +52,7 @@ function validate(e) {
     finalGrade = "";;
     let allInputs = []
     let weightsTotal = 0;
+    let rounds = 0;
     const grades = document.getElementsByClassName('cust_input_box');
     const weights = document.getElementsByClassName('input_weight');
     const totals = document.getElementsByClassName('input_oFA');
@@ -57,8 +63,9 @@ function validate(e) {
     }
     for (let i = 0; i < weights.length; i++) {
         if (!weights[i].classList.contains('hidden')) {
+            rounds++
+            console.log("justweights: " + parseInt(weights[i].value))
             weightsTotal += parseInt(weights[i].value);
-            console.log(weightsTotal)
             allInputs.push(weights[i])
         }
     }
@@ -176,6 +183,8 @@ function displayFinalGrades() {
             finalGrade = "You have achieved a Pass";
         } else if (finalMark < 50) {
             finalGrade = "You have achieved a Fail";
+        } else if (autoFail === true) {
+            finalGrade = "You have failed as you are required to achieve at least 50% in all assessments.";
         }
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
         let gradeNode = document.createTextNode(finalGrade)
