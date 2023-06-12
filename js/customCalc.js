@@ -175,6 +175,8 @@ function displayFinalGrades() {
         calculateGrade();
         let results = document.getElementById("resultMark");
         let grades = document.getElementById("resultGrade");
+        let resultContainer = document.getElementById("results");
+        resultContainer.classList.remove("hidden");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
         if (autoFail === true) {
@@ -195,9 +197,10 @@ function displayFinalGrades() {
         console.log(finalGrade, finalMark)
         results.appendChild(markNode);
         grades.appendChild(gradeNode);
-        if (finalGrade !== null) {
-            $("#description").slideUp(400);
-        }
+        resultContainer.classList.add("animated_results");
+        requestAnimationFrame(() => {
+            resultContainer.classList.add("show");
+        });
         if (finalGrade === "You have achieved a High Distinction") {
             document.getElementById("int_col_left").classList.remove("hidden");
             document.getElementById("int_col_right").classList.remove("hidden");

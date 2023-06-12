@@ -12,34 +12,41 @@ let finalGrade;
 let gradeArray = [];
 let total = 0;
 let animationInterval;
+let autoFail = false;
+
+function getAutoFail() {
+    return autoFail;
+}
 
 function validate(e) {
     e.preventDefault();
     let ass1 = document.querySelector("input[name=assignment1]").value;
-    let quizMark = document.querySelector("input[name=quizzes]").value;
     let ass2 = document.querySelector("input[name=assignment2]").value;
     let ass3 = document.querySelector("input[name=assignment3]").value;
+    let ass4 = document.querySelector("input[name=assignment4]").value;
+    let ass5 = document.querySelector("input[name=assignment5]").value;
     let exam = document.querySelector("input[name=exam]").value;
     finalGrade = "";
-
-    if (isNaN(quizMark) || quizMark === null || quizMark === "") {
-        addError("You must enter a number in quizzes");
-    } else if (quizMark > 75) {
-        addError("Quiz score must be under 75");
-    } else if (isNaN(ass1) || ass1 === null || ass1 === "") {
-        addError("You must enter a number in Assignment 1");
+    if (isNaN(ass1) || ass1 === null || ass1 === "") {
+        addError("You must enter a number for the Tutorial Assessment");
     } else if (ass1 > 100) {
-        addError("Assignment 1 grade is out of 100");
+        addError("The Tutorial Assessment grade is out of 10");
     } else if (isNaN(ass2) || ass2 === null || ass2 === "") {
         addError("You must enter a number in Assignment 2");
     } else if (ass2 > 100) {
         addError("Assignment 2 grade is out of 100");
     } else if (isNaN(ass3) || ass3 === null || ass3 === "") {
         addError("You must enter a number in Assignment 3");
-    } else if (ass3 > 5) {
-        addError("Assignment 3 grade is out of 5");
-    } else if (isNaN(exam) || exam == null || exam === "") {
-        addError("You must enter a number in Exam");
+    } else if (ass3 > 100) {
+        addError("Assignment 3 grade is out of 100");
+    } else if (isNaN(ass4) || ass4 === null || ass4 === "") {
+        addError("You must enter a number in Assignment 4");
+    } else if (ass4 > 5) {
+        addError("Assignment 4 grade is out of 5");
+    } else if (isNaN(ass5) || ass5 === null || ass5 === "") {
+        addError("You must enter a number in Assignment 5");
+    } else if (ass5 > 100) {
+        addError("Assignment 5 grade is out of 100");
     } else if (exam > 100) {
         addError("Exam grade is out of 100");
     } else {
@@ -48,10 +55,12 @@ function validate(e) {
     }
 }
 
-function calculateGrade() {
 
+function calculateGrade() {
     let results = document.getElementById("resultMark");
     let grades = document.getElementById("resultGrade");
+    grades.innerHTML = "";
+    results.innerHTML = "";
     document.getElementById("int_col_left").classList.add("hidden");
     document.getElementById("int_col_right").classList.add("hidden");
     let comparison = document.getElementById("comparison");
@@ -59,24 +68,27 @@ function calculateGrade() {
     comparison.classList.add("hidden")
     challenge.classList.remove("hidden")
     comparison.innerHTML = ""
-    grades.innerHTML = "";
-    results.innerHTML = "";
     finalMark = "";
     finalGrade = "";
     gradeArray = [];
+    autoFail = false;
     total = 0;
-    let quizzes = parseInt(document.getElementsByClassName("input_box")[0].value);
-    let assignment1 = parseInt(document.getElementsByClassName("input_box")[1].value);
-    let assignment2 = parseInt(document.getElementsByClassName("input_box")[2].value);
-    let assignment3 = parseInt(document.getElementsByClassName("input_box")[3].value);
-    let exam = parseInt(document.getElementsByClassName("input_box")[4].value);
+    let assignment1 = parseInt(document.getElementsByClassName("input_box")[0].value);
+    let assignment2 = parseInt(document.getElementsByClassName("input_box")[1].value);
+    let assignment3 = parseInt(document.getElementsByClassName("input_box")[2].value);
+    let assignment4 = parseInt(document.getElementsByClassName("input_box")[3].value);
+    let assignment5 = parseInt(document.getElementsByClassName("input_box")[4].value);
+    let exam = parseInt(document.getElementsByClassName("input_box")[5].value);
     //let length = document.getElementsByClassName("input_box").length;
-
-    gradeArray.push((quizzes / 75) * 15);
+    if (exam / 100 < 0.5) {
+        autoFail = true;
+    }
     gradeArray.push((assignment1 / 100) * 10);
-    gradeArray.push((assignment2 / 100) * 45);
-    gradeArray.push((assignment3 / 5) * 5);
-    gradeArray.push((exam / 100) * 25);
+    gradeArray.push((assignment2 / 100) * 20);
+    gradeArray.push((assignment3 / 100) * 25);
+    gradeArray.push((assignment4 / 5) * 5);
+    gradeArray.push((assignment5 / 100) * 10);
+    gradeArray.push((exam / 100) * 30);
     for (x = 0; x < gradeArray.length; x++) {
         total += gradeArray[x];
     }
@@ -94,15 +106,17 @@ function displayFinalGrades() {
         resultContainer.classList.remove("hidden");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
-        if (finalMark >= 85) {
+        if (getAutoFail() === true) {
+            finalGrade = "You have failed - you are required to achieve at least 50% in the exam.";
+        } else if (finalMark >= 85) {
             finalGrade = "You have achieved a High Distinction";
-        } else if (finalMark < 85 && finalMark > 75) {
+        } else if (finalMark < 85 && finalMark >= 75) {
             finalGrade = "You have achieved a Distinction";
-        } else if (finalMark <= 75 && finalMark > 65) {
+        } else if (finalMark < 75 && finalMark >= 65) {
             finalGrade = "You have achieved a Credit";
-        } else if (finalMark <= 65 && finalMark > 50) {
+        } else if (finalMark < 65 && finalMark >= 50) {
             finalGrade = "You have achieved a Pass";
-        } else if (finalMark <= 50) {
+        } else if (finalMark < 50) {
             finalGrade = "You have achieved a Fail";
         }
         gradeComparison(98, finalMark)
@@ -162,7 +176,6 @@ function gradeComparison(myGrade, calcGrade) {
         comparison.classList.add("pop-outin")
         comparison.innerHTML = "Wow! You got the same grade as me! Well done!";
     }
-
 }
 
 function resetPage(e) {

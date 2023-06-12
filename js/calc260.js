@@ -99,6 +99,8 @@ function displayFinalGrades() {
         calculateGrade();
         let results = document.getElementById("resultMark");
         let grades = document.getElementById("resultGrade");
+        let resultContainer = document.getElementById("results");
+        resultContainer.classList.remove("hidden");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
         if (getAutoFail() === true) {
@@ -119,9 +121,10 @@ function displayFinalGrades() {
         let gradeNode = document.createTextNode(finalGrade)
         results.appendChild(markNode);
         grades.appendChild(gradeNode);
-        if (finalGrade !== null) {
-            $("#description").slideUp(400);
-        }
+        resultContainer.classList.add("animated_results");
+        requestAnimationFrame(() => {
+            resultContainer.classList.add("show");
+        });
         if (finalGrade === "You have achieved a High Distinction") {
             let $omg1 = $("#omg1");
             let $omg2 = $("#omg2");
@@ -155,19 +158,21 @@ function gradeComparison(myGrade, calcGrade) {
     if (myGrade > calcGrade) {
         comparison.classList.remove("hidden")
         challenge.classList.add("hidden")
+        comparison.classList.add("pop-outin")
         let difference = myGrade - calcGrade
         comparison.innerHTML = "I beat your grade by " + difference + "%!";
     } else if (calcGrade > myGrade) {
         comparison.classList.remove("hidden")
         challenge.classList.add("hidden")
+        comparison.classList.add("pop-outin")
         let difference = calcGrade - myGrade
         comparison.innerHTML = "Well done! You beat my grade by " + difference + "%!";
     } else {
         comparison.classList.remove("hidden")
         challenge.classList.add("hidden")
+        comparison.classList.add("pop-outin")
         comparison.innerHTML = "Wow! You got the same grade as me! Well done!";
     }
-
 }
 
 function resetPage(e) {
