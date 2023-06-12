@@ -183,7 +183,7 @@ p {
 
 #strip {
     position: relative;
-    height: 140px;
+    height: 120px;
     width: 110%;
     right: 3%;
     background-color: #00000071;
@@ -585,7 +585,9 @@ a {
 .button[type="submit"] {
     margin-top: 3%;
     font-size: 1.5rem;
-    background-color: rgba(245, 245, 245, 0.493);
+    background-color: #00000071;
+    color: white;
+
     width: 40%;
     font-family: Leelawadee, "Lucida Sans", sans-serif;
     cursor: pointer;
@@ -596,9 +598,8 @@ a {
 .button[type="reset"] {
     margin-top: 3%;
     font-size: 1.5rem;
-    background-color: #00000071;
+    background-color: rgba(245, 245, 245, 0.493);
     width: 40%;
-    color: white;
     font-family: Leelawadee, "Lucida Sans", sans-serif;
     cursor: pointer;
     border-radius: 10px;
@@ -606,13 +607,13 @@ a {
 }
 
 
-.button[type="submit"]:hover {
-    background-color: #00000071;
+.button[type="reset"]:hover {
+    background-color: rgba(80, 80, 80, 0.493);
     color: white;
 }
 
-.button[type="reset"]:hover {
-    background-color: rgba(245, 245, 245, 0.493);
+.button[type="submit"]:hover {
+    background-color: rgba(80, 80, 80, 0.493);
     color: black;
 }
 

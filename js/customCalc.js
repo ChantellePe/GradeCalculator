@@ -49,7 +49,7 @@ function hideElements(numOfAssessments) {
 
 function validate(e) {
     e.preventDefault();
-    finalGrade = "";;
+    finalGrade = "";
     let allInputs = []
     let weightsTotal = 0;
     let rounds = 0;
@@ -121,10 +121,14 @@ function getGradeValues() {
     const weightValues = getValues("input_weight", weightArray);
     const totalValues = getValues("input_oFA", totalArray);
     const rawGrades = getValues("cust_input_box", rawGradeArray);
+    autoFail = false;
     console.log(weightValues)
     console.log(totalValues)
     console.log(rawGrades)
     for (let i = 0; i < rawGrades.length; i++) {
+        if (rawGrades[i] / totalValues[i] <= 0.48) {
+            autoFail = true;
+        }
         console.log(rawGrades[i], totalValues[i], weightValues[i])
         gradeArray.push((rawGrades[i] / totalValues[i]) * weightValues[i]);
     }
@@ -173,7 +177,9 @@ function displayFinalGrades() {
         let grades = document.getElementById("resultGrade");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
-        if (finalMark >= 85) {
+        if (autoFail === true) {
+            finalGrade = "You have failed - you are required to achieve at least 50% in all assessments.";
+        } else if (finalMark >= 85) {
             finalGrade = "You have achieved a High Distinction";
         } else if (finalMark < 85 && finalMark >= 75) {
             finalGrade = "You have achieved a Distinction";
@@ -183,8 +189,6 @@ function displayFinalGrades() {
             finalGrade = "You have achieved a Pass";
         } else if (finalMark < 50) {
             finalGrade = "You have achieved a Fail";
-        } else if (autoFail === true) {
-            finalGrade = "You have failed as you are required to achieve at least 50% in all assessments.";
         }
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
         let gradeNode = document.createTextNode(finalGrade)
@@ -220,8 +224,6 @@ function displayFinalGrades() {
         }
     }
 }
-
-
 
 function resetPage(e) {
     location.reload();

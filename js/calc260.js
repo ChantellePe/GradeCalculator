@@ -12,6 +12,12 @@ let finalGrade;
 let gradeArray = [];
 let total = 0;
 let animationInterval;
+let autoFail = false;
+
+function getAutoFail() {
+    return autoFail;
+}
+
 
 function validate(e) {
     e.preventDefault();
@@ -64,6 +70,7 @@ function calculateGrade() {
     finalMark = "";
     finalGrade = "";
     gradeArray = [];
+    autoFail = false;
     total = 0;
     let quizzes = parseInt(document.getElementsByClassName("input_box")[0].value);
     let assignment1 = parseInt(document.getElementsByClassName("input_box")[1].value);
@@ -71,6 +78,9 @@ function calculateGrade() {
     let assignment3 = parseInt(document.getElementsByClassName("input_box")[3].value);
     let exam = parseInt(document.getElementsByClassName("input_box")[4].value);
     //let length = document.getElementsByClassName("input_box").length;
+    if ((quizzes / 60) < 0.48 || (assignment1 / 100) < 0.48 || (assignment2 / 100) < 0.48 || (assignment3 / 100) < 0.48 || (exam / 50 < 0.48)) {
+        autoFail = true;
+    }
     gradeArray.push((quizzes / 60) * 10);
     gradeArray.push((assignment1 / 100) * 10);
     gradeArray.push((assignment2 / 100) * 15);
@@ -91,7 +101,9 @@ function displayFinalGrades() {
         let grades = document.getElementById("resultGrade");
         results.classList.remove("hidden");
         grades.classList.remove("hidden");
-        if (finalMark >= 85) {
+        if (getAutoFail() === true) {
+            finalGrade = "You have failed - you are required to achieve at least 50% in all assessments.";
+        } else if (finalMark >= 85) {
             finalGrade = "You have achieved a High Distinction";
         } else if (finalMark < 85 && finalMark > 75) {
             finalGrade = "You have achieved a Distinction";
