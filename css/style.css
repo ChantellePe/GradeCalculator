@@ -145,10 +145,10 @@ body {
 }
 
 #mainTitle {
-    margin-top: 15%;
+    margin-top: 20%;
     line-height: 2rem;
     font-style: italic;
-    font-size: 5.6rem;
+    font-size: 5.4rem;
     white-space: nowrap;
 }
 
@@ -156,7 +156,7 @@ body {
     position: relative;
     font-size: 5.3rem;
     margin-bottom: 2%;
-    line-height: 2rem;
+    line-height: 3.5rem;
     right: 3%;
     margin-top: 6%;
     font-style: italic;
@@ -166,7 +166,7 @@ body {
     position: relative;
     font-size: 5.3rem;
     margin-bottom: 2%;
-    line-height: 2rem;
+    line-height: 3.5rem;
     right: 3%;
     margin-top: 6%;
     font-style: italic;
@@ -184,7 +184,7 @@ p {
 
 #strip {
     position: relative;
-    height: 120px;
+    height: 125px;
     width: 110%;
     right: 3%;
     background-color: #00000071;
@@ -192,7 +192,7 @@ p {
 }
 
 .strip {
-    height: 30px;
+    height: 40px;
     position: relative;
     width: 110%;
     right: 3%;
