@@ -818,6 +818,7 @@ input[placeholder="enter a number"] {
     }
 
     .strip{
+        height: 50px;
         left: 0;
         right: 0;
     }
@@ -826,7 +827,7 @@ input[placeholder="enter a number"] {
     }
 
     #strip{
-        height: 160px;
+        height: 170px;
     }
 
     #menu{
