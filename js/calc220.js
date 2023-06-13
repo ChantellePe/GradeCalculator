@@ -22,26 +22,26 @@ function validate(e) {
     let exam = document.querySelector("input[name=exam]").value;
     finalGrade = "";
 
-    if (isNaN(quizMark) || quizMark === null || quizMark === "") {
+    if (isNaN(quizMark) || quizMark === null || quizMark === "" ) {
         addError("You must enter a number in quizzes");
-    } else if (quizMark > 75) {
-        addError("Quiz score must be under 75");
+    } else if (quizMark > 75 || quizMark < 0) {
+        addError("Quiz score must be between 0 and 75 (inclusive)");
     } else if (isNaN(ass1) || ass1 === null || ass1 === "") {
         addError("You must enter a number in Assignment 1");
-    } else if (ass1 > 100) {
-        addError("Assignment 1 grade is out of 100");
+    } else if (ass1 > 100 || ass1 < 0) {
+        addError("Assignment 1 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass2) || ass2 === null || ass2 === "") {
         addError("You must enter a number in Assignment 2");
-    } else if (ass2 > 100) {
-        addError("Assignment 2 grade is out of 100");
+    } else if (ass2 > 100 || ass2 < 0) {
+        addError("Assignment 2 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass3) || ass3 === null || ass3 === "") {
         addError("You must enter a number in Assignment 3");
-    } else if (ass3 > 5) {
-        addError("Assignment 3 grade is out of 5");
+    } else if (ass3 > 5 || ass3 < 0) {
+        addError("Assignment 3 grade must be between 0 and 5 (inclusive)");
     } else if (isNaN(exam) || exam == null || exam === "") {
         addError("You must enter a number in Exam");
-    } else if (exam > 100) {
-        addError("Exam grade is out of 100");
+    } else if (exam > 100 || exam < 0) {
+        addError("Exam grade must be between 0 and 100 (inclusive)");
     } else {
         removeError();
         displayFinalGrades();

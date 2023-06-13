@@ -76,7 +76,7 @@ function validate(e) {
     }
     try {
         allInputs.forEach((input) => {
-            if (isNaN(input.value) || input.value === null || input.value === "") {
+            if (isNaN(input.value) || input.value === null || input.value === "" || parseInt(input.value) < 0) {
                 addError("You must enter a valid number in all fields");
                 throw exception;
             } else if (weightsTotal !== 100) {

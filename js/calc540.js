@@ -30,36 +30,37 @@ function validate(e) {
     finalGrade = "";
     if (isNaN(ass1) || ass1 === null || ass1 === "") {
         addError("You must enter a number in Assignment 1");
-    } else if (ass1 > 10) {
-        addError("Assignment 1 grade is out of 10");
+    } else if (ass1 > 10 || ass1 < 0 ) {
+        addError("Assignment 1 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass2) || ass2 === null || ass2 === "") {
         addError("You must enter a number in Assignment 2");
-    } else if (ass2 > 100) {
-        addError("Assignment 2 grade is out of 100");
+    } else if (ass2 > 100 || ass2 < 0 ) {
+        addError("Assignment 2 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass3) || ass3 === null || ass3 === "") {
         addError("You must enter a number in Assignment 3");
-    } else if (ass3 > 10) {
-        addError("Assignment 3 grade is out of 10");
+    } else if (ass3 > 10 || ass3 < 0 ) {
+        addError("Assignment 3 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass4) || ass4 === null || ass4 === "") {
         addError("You must enter a number in Assignment 4");
-    } else if (ass4 > 100) {
-        addError("Assignment 4 grade is out of 100");
+    } else if (ass4 > 100 || ass4 < 0 ) {
+        addError("Assignment 4 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass5) || ass5 === null || ass5 === "") {
         addError("You must enter a number in Assignment 5");
-    } else if (ass5 > 100) {
-        addError("Assignment 5 grade is out of 100");
+    } else if (ass5 > 100 || ass5 < 0 ) {
+        addError("Assignment 5 grade must be between 0 and 100 (inclusive)");
     } else if (isNaN(ass6) || ass6 === null || ass6 === "") {
         addError("You must enter a number in Assignment 6");
-    } else if (ass6 > 100) {
-        addError("Assignment 6 grade is out of 100");
-    } else if (exam > 100) {
-        addError("Exam grade is out of 100");
+    } else if (ass6 > 100 || ass6 < 0 ) {
+        addError("Assignment 6 grade must be between 0 and 100 (inclusive)");
+    } else if (isNaN(exam) || exam == null || exam === "") {
+        addError("You must enter a number in Exam");
+    } else if (exam > 100 || exam < 0) {
+        addError("Exam grade must be between 0 and 100 (inclusive)");
     } else {
         removeError();
         displayFinalGrades();
     }
 }
-
 
 function calculateGrade() {
     let results = document.getElementById("resultMark");
@@ -126,7 +127,7 @@ function displayFinalGrades() {
         } else if (finalMark < 50) {
             finalGrade = "You have achieved a Fail";
         }
-        gradeComparison(90, finalMark)
+        gradeComparison(93, finalMark)
         let markNode = document.createTextNode("Your final mark is " + finalMark.toString())
         let gradeNode = document.createTextNode(finalGrade)
         results.appendChild(markNode);
